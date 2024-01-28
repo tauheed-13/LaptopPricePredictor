@@ -37,9 +37,9 @@ def predict():
     ppi = ((X_res)**2 + (Y_res)**2)**0.5/size         
     input_data = [company, type_name, ram, gpu, os, weight, touchscreen, ips, ppi, cpu_brand, hdd, ssd]
 
-    prediction = model.predict([input_data])
-    prediction_antilog = np.exp(prediction)
-    return render_template('index.html', prediction=prediction_antilog)
+    predictions = model.predict([input_data])
+    prediction_antilog = np.exp(predictions)
+    return render_template('index.html', predictions=prediction_antilog)
 
 if __name__ == '__main__':
     app.run(host = '0.0.0.0', port = 8080)
