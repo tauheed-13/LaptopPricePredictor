@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ML Prediction App</title>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    background-color:#192A3C;
+    margin: 0;
+    color: #fff;
+    padding: 0;
+}
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #245B47;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#weight{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+h2 {
+    text-align: center;
+    color: white;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+select,
+option {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+p{
+    text-align: center;
+}
+input[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    width: 200px;
+    height: 40px;
+    box-shadow: 0px 0px 3px rgb(186, 219, 186);
+    border: none;
+    font-size: 22px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 30%;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Add more styles as needed */
+
+    </style>
+</head>
+<body>
+    <h2>Enter Data:</h2>
+    <form action="/predict" method="post">
+        <label for="company">Company:</label>
+        <!-- Dropdown menu for Company -->
+        <select name="company">
+            <option value="Apple">Apple</option>
+            <option value="HP">HP</option>
+            <option value="Dell">Dell</option>
+            <option value="Asus">Asus</option>
+            <option value="Lenovo">Lenovo</option>
+        </select>
+    
+        <label for="size">Size:</label>
+        <select name="size">
+            <option value="15.6">15.6</option>
+            <option value="14">14</option>
+            <option value="18.4">18.4</option>
+        </select>
+
+        <label for="type_name">Type Name:</label>
+        <select name="type_name">
+            <option value="Notebook">Notebook</option>
+            <option value="Gaming">Gaming</option>
+            <option value="Ultrabook">Ultrabook</option>
+            <option value="2 in 1 Convertible">2 in 1 Convertible</option>
+            <option value="Workstation">Workstation</option>
+            <option value="Netbook">Netbook</option>
+        </select>
+
+        <label for="ram">Ram:</label>
+        <select name="ram">
+            <option value="4">4</option>
+            <option value="8">8</option>
+            <option value="16">16</option>
+            <option value="32">32</option>
+            <option value="64">64</option>
+            <option value="6">6</option>
+        </select>
+        <label for="gpu">GPU:</label>
+        <!-- Dropdown menu for GPU -->
+        <select name="gpu">
+            <option value="Nividia">Nividia</option>
+            <option value="AMD">AMD</option>
+            <option value="Intel">Intel</option>
+        </select>
+
+        <label for="os">Operating System:</label>
+        <!-- Dropdown menu for Operating System -->
+        <select name="os">
+            <option value="Others/No OS/Windows">Others/No OS/Windows</option>
+            <option value="Mac">Mac</option>
+            <option value="Windows">Windows</option>
+        </select>
+
+        <label for="weight">Weight</label>
+        <input type="text" name="weight" placeholder="Enter weight" id="weight">
+
+        <label for="touchscreen">TouchScreen</label>
+        <select name="touchscreen">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        <label for="ips">IPS Panel:</label>
+        <select name="ips">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        <label for="ScreenResolution">ScreenResolution:</label>
+        <select name="ScreenResolution">
+            <option value="1920x1080">1920x1080</option>
+            <option value="1366x768">1366x768</option>
+            <option value="1600x900">1600x900</option>
+            <option value="3840x2160">3840x2160</option>
+            <option value="3200x1800">3200x1800</option>
+            <option value="2560x1600">2560x1600</option>
+        </select> 
+        <label for="cpu_brand">CPU Brand:</label>
+        <select name="cpu_brand">
+            <option value="Intel Core i5">Intel Core i5</option>
+            <option value="Intel Core i7">Intel Core i7</option>
+            <option value="Intel Core i3">Intel Core i3</option>
+            <option value="AMD Processor">AMD Processor</option>
+            <option value="Other Intel Processor">Other Intel Processor</option>
+        </select> 
+        <label for="hdd">HDD:</label>
+        <select name="hdd">
+            <option value="0">0</option>
+            <option value="500">500</option>
+            <option value="1000">1000</option>
+            <option value="32">32</option>
+            <option value="128">128</option>
+            <option value="2000">2000</option>
+        </select> 
+        <label for="ssd">SSD:</label>
+        <select name="ssd">
+            <option value="128">128</option>
+            <option value="256">256</option>
+            <option value="512">512</option>
+            <option value="32">32</option>
+            <option value="64">64</option>
+            <option value="1000">1000</option>
+            <option value="1024">1024</option>
+        </select> 
+        <input type="submit" value="Predict">
+    </form>
+    <h2>Prediction Result:{{ prediction }}</h2>
+</body>
+</html>
